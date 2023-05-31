@@ -38,7 +38,9 @@ FCOS
 
 │   └── output         //存放demo测试后的图片结果 
 
-├── train_and_eval.py                 //训练模型和验证模型，输出的结果会存放到weights、logs文件夹
+├── train_and_eval.py                 //训练模型和验证模型，输出的结果会存放到weights、logs文件夹（！速度较慢）
+
+├── train.py                 //训练模型，输出的结果会存放到weights、logs文件夹
 
 ├── eval.py                 //加载训练好的模型（.pth文件），可以得到AP和mAP结果
 
@@ -61,12 +63,17 @@ pip install requirements.txt
 ### 训练
 
 ```
-python train_and_eval.py 
+python train_and_eval.py #速度较慢
+```
+或
+
+```
+python train.py  #速度比同时train和evaluate要快
 ```
 
 默认30个epochs，程序将默认保存每个epoch后的模型 .pth文件
 
-训练完成后可以用tensorboard查看训练和验证的loss、验证的mAP
+训练完成后可以用tensorboard查看记录的loss
 
 ```
 tensorboard --logdir=FCOS/logs
